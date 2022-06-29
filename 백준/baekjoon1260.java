@@ -32,7 +32,7 @@ public class baekjoon1260 {
 
     public static void dfs(int s){
         System.out.print(s+" ");
-        visit[s]=1;
+        visit[s]=1; 
         for(int i=1;i<=v;i++){
             if(visit[i]==1 || que[s][i]==0)
                 continue;
