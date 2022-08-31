@@ -18,5 +18,5 @@ public class baekjoon1427 {
         }
 
         abc.stream().sorted(Comparator.comparing(String::valueOf).reversed()).forEach(System.out::print);
-    } 
+    }
 }
