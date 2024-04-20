@@ -1,0 +1,1 @@
+select count(*) as FISH_COUNT  from fish_info as fi, FISH_NAME_INFO as fni  where fi.fish_type = fni.fish_type and (fni.fish_name = "BASS" or fni.fish_name = "SNAPPER");
