@@ -1,0 +1,13 @@
+-- 코드를 입력하세요
+
+-- 출력 : 아이스크림의 맛
+-- 조건 :  총주분량 3000이상, 주성분 과일
+-- 정렬 : 총주문량 오름차순
+
+SELECT F.FLAVOR
+FROM FIRST_HALF AS F JOIN ICECREAM_INFO AS I ON F.FLAVOR = I.FLAVOR
+WHERE F.TOTAL_ORDER > 3000 AND I.INGREDIENT_TYPE = 'fruit_based'
+ORDER BY F.TOTAL_ORDER DESC
+
+# SELECT F.FLAVOR
+# FROM ICECREAM_INFO AS F
