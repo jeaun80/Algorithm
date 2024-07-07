@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+-- 출력 : 
+
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO AS F 
+WHERE YEAR(F.TIME) = 2021
