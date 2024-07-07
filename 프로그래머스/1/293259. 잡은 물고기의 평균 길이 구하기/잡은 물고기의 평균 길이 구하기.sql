@@ -1,0 +1,12 @@
+-- 코드를 작성해주세요
+-- 출력 : 평균길이 (컬럼명 주의)
+-- 조건 : 3째자리에서 반올림, Null일 경우 10으로 취급
+
+# SELECT AVG(F.LENGTH) AS AVERAGE_LENGTH
+# FROM FISH_INFO AS F
+# WHERE F IS NULL
+
+SELECT ROUND(AVG(L),2) AS AVERAGE_LENGTH
+FROM (SELECT IFNULL(F.LENGTH,10) AS L FROM FISH_INFO AS F) AS A;
+
+
