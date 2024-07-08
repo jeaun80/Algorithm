@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+-- 출력 : 카테고리 앞2자리, 카테고리2자리별 상품갯수
+-- 조건 : 전체
+-- 정렬 : 카테고리코드기준
+
+SELECT SUBSTRING(P.PRODUCT_CODE,1,2) AS CATEGORY, COUNT(*) AS PRODUCTS
+FROM PRODUCT AS P 
+GROUP BY SUBSTRING(P.PRODUCT_CODE,1,2)
+ORDER BY CATEGORY
