@@ -1,0 +1,9 @@
+-- 코드를 작성해주세요
+-- 출력 : 부서별id,부서명 평균 연봉
+-- 조건 : 평균연봉 첫째자리에서 반올림
+-- 정렬 : 평균연봉 내림차순
+
+SELECT HD.DEPT_ID, HD.DEPT_NAME_EN, ROUND(AVG(HE.SAL),0) AS AVG_SAL
+FROM HR_DEPARTMENT AS HD JOIN HR_EMPLOYEES AS HE ON HD.DEPT_ID = HE.DEPT_ID
+GROUP BY HD.DEPT_ID
+ORDER BY AVG_SAL DESC
