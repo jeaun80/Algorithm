@@ -1,0 +1,22 @@
+-- 코드를 작성해주세요
+
+-- 출력 : id, 분류이름 
+-- 조건 : 크기상위 4분위로 나누고 이름붙이기 
+-- 정렬 : 개체 id 오름차순
+
+WITH RA AS 
+(SELECT ID, NTILE(4) OVER(ORDER BY SIZE_OF_COLONY DESC) AS G FROM ECOLI_DATA)
+
+# SELECT *
+# FROM RA;
+
+SELECT ED.ID, 
+    CASE 
+    WHEN R.G = 1 THEN "CRITICAL"
+    WHEN R.G = 2 THEN "HIGH"
+    WHEN R.G = 3 THEN "MEDIUM"
+    WHEN R.G = 4 THEN "LOW"
+    END AS COLONY_NAME
+FROM ECOLI_DATA AS ED JOIN RA AS R ON ED.ID = R.ID
+ORDER BY ED.ID
+
