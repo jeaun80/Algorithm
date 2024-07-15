@@ -1,0 +1,17 @@
+-- 코드를 입력하세요
+-- 출력 : 판매날짜 상품아이디 유저아이디 판매량
+-- 조건 : 온라인 오프라인 데이터 로우 합연산 합치기 , 유저아이디없는 오프라인은 null로 출력
+-- 정렬 : 판맹리 기준 상품아이디  유저아이디 오름차순
+
+-- 합연산 어떻게하는거냐
+-- 상품아이디로 조인하면 같은 아이디끼리에서 카디널리티연산이되는데 n*n
+SELECT DATE_FORMAT(OFS.SALES_DATE,'%Y-%m-%d') AS SALES_DATE , OFS.PRODUCT_ID AS PRODUCT_ID,NULL USER_ID,OFS.SALES_AMOUNT
+FROM OFFLINE_SALE AS OFS 
+WHERE YEAR(OFS.SALES_DATE) = '2022' AND MONTH(OFS.SALES_DATE) = '03'
+UNION 
+SELECT DATE_FORMAT(ONS.SALES_DATE,'%Y-%m-%d') AS SALES_DATE, ONS.PRODUCT_ID AS PRODUCT_ID,ONS.USER_ID AS USER_ID,ONS.SALES_AMOUNT 
+FROM ONLINE_SALE AS ONS
+WHERE YEAR(ONS.SALES_DATE) = '2022' AND MONTH(ONS.SALES_DATE) = '03'
+
+ORDER BY SALES_DATE, PRODUCT_ID,USER_ID
+
